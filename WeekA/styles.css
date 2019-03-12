@@ -1,0 +1,51 @@
+ body {
+     margin:0;
+     font-family: Arial, Helvetica, sans-serif;
+     background-color: #55ba55;
+ }
+
+ header {
+     border-bottom: 3px ridge grey;
+     background: #9ab7f1; /* six digits, 0-9, a-f for hex code color */
+ }
+
+ header > h1 {
+     margin: 0;
+     padding: 25px;
+     text-align: center;
+ }
+
+ article {
+     /*width: 70%;*/
+     background: #55ba55;
+     padding: 5px;
+     flex-grow: 2;
+ }
+
+ aside {
+     /*width: 30%;*/
+     background: #59f3f1;
+     border-left: 3px ridge grey;
+     box-sizing: border-box;
+     padding: 5px;
+     flex-grow: 1;
+ }
+
+#container {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vw;
+    flex-grow: 1;
+}
+
+#main-view {
+    display: flex;
+    flex-direction: row;
+}
+
+form {
+    margin: 20px;
+    background-color: #665abc;
+}

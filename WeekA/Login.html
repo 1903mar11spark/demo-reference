@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+</head>
+<body>
+    <div id="container">
+        <!-- default values for action and method attributes are the current page and GET -->
+        <form action="Congrats.html" method="POST">
+            <input type="email" name="userEmail"><br>
+            <input type="password" name="userPass"><br>
+            <input type="submit" value="submit"><br>
+        </form>
+        <br>
+        <form action="https://www.google.com/search" method="GET">
+            <input type="text" name="q"/><br>
+            <input type="submit" value="let me google that for you"/>
+        </form>
+        <br>
+        <form>
+            <!-- text is the default input type -->
+            <input name="text1" autocomplete="off" placeholder="AAA9999" required="true" pattern="[A-Z]{3}[0-9]{4}">
+            <input name="date" type=date>
+            <input type="submit" value="submit">
+        </form>
+        <br>
+        <form>
+            <!-- fieldset from HTML5 -->
+            <fieldset>
+                <legend>Sports</legend>
+                <input type="radio" name="radioChoice" value="baseball" checked/> Baseball <br>
+                <input type="radio" name="radioChoice" value="tennis"/> Tennis <br>
+                <input type="radio" name="radioChoice" value="soccer"/> Soccer <br>
+            </fieldset>
+            <fieldset>
+                <legend>Trees</legend>
+                <input type="checkbox" name="checkboxChoice" value="redwood" checked/> Redwood <br>
+                <input type="checkbox" name="checkboxChoice" value="birch"/> Birch <br>
+                <input type="checkbox" name="checkboxChoice" value="Oak"/> Oak <br>
+            </fieldset>
+            <input type="submit" value="submit"/>
+        </form>
+    </div>
+    
+</body>
+</html>
