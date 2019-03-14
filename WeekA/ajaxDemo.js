@@ -1,11 +1,10 @@
 window.onload = function() {
-   /* document.getElementById("weather").addEventListener("click",function(){
+    document.getElementById("weather").addEventListener("click",function(){
         sendAjaxGet('http://api.openweathermap.org/data/2.5/weather?q=Tampa,us&units=imperial&APPID=859d47520ac736ebe8bbce1fef74269c', showWeather)
-    }); */
-    let weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=Tampa,us&units=imperial&APPID=859d47520ac736ebe8bbce1fef74269c';
+    });
+  /*  let weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=Tampa,us&units=imperial&APPID=859d47520ac736ebe8bbce1fef74269c';
     this.setInterval(function(){
-        sendAjaxGet(weatherUrl, showWeather)},
-        10000);
+        sendAjaxGet(weatherUrl, showWeather)}, 10000); */
 }
 
 // url represents resource being requested
