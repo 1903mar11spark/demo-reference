@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Thursday</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+</head>
+<body>
+    <div id="div1" class="extraStylish">
+        <div id="div2">
+            <div id="div3" class="extraStylish">
+                <div id="div4">
+                    <h1>First Child of div4</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div>
+        <button type="button" id="b1" onclick="clickB1(event)">inline event handling</button><br>
+        <button type="button" id="b2">short form event handling</button><br>
+        <button type="button" id="b3">long form event handling</button>
+    </div>
+</body>
+<script>
+    /*
+    select div4 and append a new h2 child
+    */
+   let h2 = document.createElement("h2");
+   h2.innerText = "Second Child of div4";
+   document.getElementById("div4").appendChild(h2);
+   /*
+    change style of div1, div3 to have a different color
+   */
+   let elementsToStyle = document.getElementsByClassName("extraStylish");
+   console.log(elementsToStyle);
+   for (i=0; i<elementsToStyle.length; i++) {
+       elementsToStyle[i].setAttribute("style","background-color:#8abc32;");
+   }
+
+   /*
+    functions to handle click events on buttons
+   */
+   function clickB1(event) {
+       alert("clicked b1 at "+ event.timeStamp);
+   }
+   document.getElementById("b2").onclick = function(event){
+       alert("clicked b2 at "+event.timeStamp);
+   }
+   //here, the handler is a CALLBACK FUNCTION
+   document.getElementById("b3").addEventListener("click", function(event){
+       alert("clicked b3 at "+event.timeStamp);}, false);
+
+ 
+</script>
+</html>
