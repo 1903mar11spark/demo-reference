@@ -63,4 +63,10 @@ public class Car extends Vehicle {
 		return "Car:  [yearManufactured="+this.yearManufactured+", model="+this.model+", make="+
 		this.make+" milesSinceOilChange="+this.milesSinceOilChange+"]";
 	}
+	
+	@Override
+	public void move() {
+		System.out.println("car is moving");
+	}
+
 }
