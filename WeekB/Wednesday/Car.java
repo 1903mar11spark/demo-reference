@@ -1,4 +1,21 @@
 public class Car extends Vehicle {
+	
+	//constructor with no arguments
+
+	public Car() {
+		System.out.println("called noargs constructor");
+	}
+
+	//constructor which sets all the fields but milesSinceLastOilChange
+
+	public Car(int yearManufactured, String model, String make) {
+		this.yearManufactured = yearManufactured;
+		this.model = model;
+		this.make = make;
+	}
+
+	//static variable defining recommended miles between oil changes
+	public static int recommendedMilesBetweenOilChange = 5000;
 
 	//private instance variables, accessible only within the class
 
@@ -39,5 +56,11 @@ public class Car extends Vehicle {
 
 	public void setMilesSinceOilChange(int milesSinceOilChange) {
 		this.milesSinceOilChange = milesSinceOilChange;
+	}
+
+	@Override //indicates to compiler that this method should override a method in a superclass
+	public String toString() {
+		return "Car:  [yearManufactured="+this.yearManufactured+", model="+this.model+", make="+
+		this.make+" milesSinceOilChange="+this.milesSinceOilChange+"]";
 	}
 }
