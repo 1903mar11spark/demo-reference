@@ -4,14 +4,17 @@ public class Car extends Vehicle implements Steerable {
 	
 	public Car() {
 		super();
+		System.out.println("car noargs constructor completed");
 	}
-
-	public Car(int yearManufactured, String make, String model) {
-		super();
+	
+	public Car(int topSpeed, int yearManufactured, String make, String model) {
+		super(topSpeed);
 		this.yearManufactured = yearManufactured;
 		this.make = make;
 		this.model = model;
+		System.out.println("car args constructor completed");
 	}
+
 
 	private int yearManufactured;
 	private String make;

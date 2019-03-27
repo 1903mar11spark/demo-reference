@@ -7,6 +7,7 @@ import java.util.List;
 import com.revature.transport.Car;
 import com.revature.transport.Chairlift;
 import com.revature.transport.Kayak;
+import com.revature.transport.RCCar;
 import com.revature.transport.Steerable;
 import com.revature.transport.Vehicle;
 
@@ -22,7 +23,19 @@ public class Tuesday {
 
 	public static void main(String[] args) {
 		System.out.println("Hello World");
-		funWithTransport();
+		funWithConstructorsAndCodeBlocks();
+	}
+	
+	static void funWithConstructorsAndCodeBlocks() {
+		
+	/*	Car c = new Car(); //Vehicle constructor completes before Car
+		
+		//how to set value of top speed?
+		Car c2 = new Car(800, 2002, "Mercury", "Sable");
+		System.out.println(c2);*/
+		
+		RCCar rcc = new RCCar(900, 2019, "Mattel", "Hot Wheels");
+		System.out.println(rcc);
 	}
 
 	static void funWithTransport() {
@@ -35,8 +48,8 @@ public class Tuesday {
 		Kayak k2 = new Kayak(4.5, "blue");
 
 		// make some more Vehicles
-		Car c1 = new Car(1999, "Mazda", "Miata");
-		Car c2 = new Car(2018, "Tesla", "Model S");
+		Car c1 = new Car(90, 1999, "Mazda", "Miata");
+		Car c2 = new Car(90, 2018, "Tesla", "Model S");
 		Chairlift cl1 = new Chairlift(12, 950);
 
 		// create and populate a List of Vehicles
