@@ -24,3 +24,9 @@ div {
 #div4 {
     background-color: #abcdef;
 }
+
+p {
+    background-color: #777abc;
+    margin: 20px;
+    padding: 20px;
+}
