@@ -55,7 +55,7 @@ public class BearDAOImpl implements BearDAO {
 	@Override
 	public Bear getBearById(int id) {
 		Bear b = null;
-		try (Connection con = ConnectionUtil.getConnection()){
+		try (Connection con = ConnectionUtil.getConnectionFromFile()){
 			// write a join to unify Bear, Cave, and BearType into one ResultSet
 			String sql = "SELECT B.BEAR_ID, B.BEAR_NAME, B.BIRTHDATE, B.WEIGHT, C.CAVE_ID, C.CAVE_NAME, C.MAX_BEARS, BT.BEAR_TYPE_ID, BT.BEAR_TYPE_NAME "
 					+ "FROM BEAR B INNER JOIN BEAR_TYPE BT ON B.BEAR_TYPE_ID = BT.BEAR_TYPE_ID "
@@ -79,6 +79,8 @@ public class BearDAOImpl implements BearDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
 		}
 		return b;
 	}
