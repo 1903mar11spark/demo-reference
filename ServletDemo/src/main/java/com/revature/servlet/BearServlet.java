@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.revature.beans.Bear;
 import com.revature.service.BearService;
 import com.revature.service.BearServiceImpl;
 
@@ -54,6 +55,15 @@ public class BearServlet extends HttpServlet {
 			}
 		} else {
 			resp.getWriter().write(om.writeValueAsString(bearService.allBears()));
+		}
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		if (bearService.createBear(om.readValue(req.getReader(), Bear.class))) {
+			resp.setStatus(200);
+		} else {
+			resp.sendError(400);
 		}
 	}
 

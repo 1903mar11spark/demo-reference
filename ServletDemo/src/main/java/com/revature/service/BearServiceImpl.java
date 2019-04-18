@@ -23,4 +23,9 @@ public class BearServiceImpl implements BearService {
 		return bd.getBearById(id);
 	}
 
+	@Override
+	public boolean createBear(Bear bear) {
+		return bd.createBear(bear);
+	}
+
 }

@@ -9,5 +9,7 @@ public interface BearService {
 	public List<Bear> allBears();
 	
 	public Bear getBearById(int id);
+	
+	public boolean createBear(Bear b);
 
 }

@@ -34,8 +34,9 @@ public class FakeBearDAOImpl implements BearDAO {
 	}
 
 	@Override
-	public void createBear(Bear bear) {
+	public boolean createBear(Bear bear) {
 		// TODO Auto-generated method stub
+		return false;
 		
 	}
 
