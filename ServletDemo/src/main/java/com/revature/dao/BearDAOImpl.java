@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.io.IOException;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +23,7 @@ public class BearDAOImpl implements BearDAO {
 		List<Bear> bl = new ArrayList<>();
 		// try-with-resources... resources will be closed at the end of the block
 		// works for all AutoCloseable resources
-		try (Connection con = ConnectionUtil.getConnection()) {
+		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
 			// write a join to unify Bear, Cave, and BearType into one ResultSet
 			// map the ResultSet onto a list of Bear objects
 			String sql = "SELECT B.BEAR_ID, B.BEAR_NAME, B.BIRTHDATE, B.WEIGHT, C.CAVE_ID, C.CAVE_NAME, C.MAX_BEARS, BT.BEAR_TYPE_ID, BT.BEAR_TYPE_NAME "
@@ -45,7 +46,9 @@ public class BearDAOImpl implements BearDAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} 
 		return bl;
 	}
 
