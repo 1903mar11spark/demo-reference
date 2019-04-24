@@ -15,11 +15,12 @@ export class HttpComponent implements OnInit {
   title = 'HTTP';
   documentation = 'https://angular.io/guide/http';
 
-  public bears: Bear[];
-  public selectedBearId: number;
-  public bear: Bear; // = new Bear(3, "Fred", new Cave(5, "Camp Awesome", 7), new BearType(8, "Grizzly"), 400, new Date());
+  bears: Bear[];
+  selectedBearId: number;
+  bear: Bear; // = new Bear(3, "Fred", new Cave(5, "Camp Awesome", 7), new BearType(8, "Grizzly"), 400, new Date());
 
   // Inject service
+  // in a typescript constructor, can define properties of the class
   constructor(private bearService: BearService) { }
 
   getBearInformation(): void {
@@ -37,6 +38,9 @@ export class HttpComponent implements OnInit {
         error => { console.log(error); }
       );
     console.log('populated bears');
+    console.log(this.bears);
+    // this will usually print 'undefined' because it is attempting to print a
+    // value which may not have back from the Observable yet.
   }
   // if we want to make the call when component is created
   ngOnInit() {

@@ -5,7 +5,7 @@ export class Bear {
     id: number;
     name: string;
     cave: Cave;
-    type: BearType;
+    bearType: BearType;
     weight: number;
     birthdate: Date;
 
@@ -13,7 +13,7 @@ export class Bear {
         this.id = id;
         this.name = name;
         this.cave = cave;
-        this.type = type;
+        this.bearType = type;
         this.weight = weight;
         this.birthdate = birthdate;
     }
