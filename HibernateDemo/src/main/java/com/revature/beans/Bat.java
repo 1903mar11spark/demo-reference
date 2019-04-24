@@ -20,6 +20,23 @@ public class Bat {
 		super();
 	}
 
+	public Bat(String name) {
+		super();
+		this.name = name;
+	}
+
+	public Bat(String name, double wingspan) {
+		super();
+		this.name = name;
+		this.wingspan = wingspan;
+	}
+	
+	public Bat(int id, String name) {
+		super();
+		this.name = name;
+		this.id = id;
+	}
+
 	public Bat(int id, String name, double wingspan) {
 		super();
 		this.id = id;
@@ -32,10 +49,12 @@ public class Bat {
 	@SequenceGenerator(allocationSize = 1, name = "batSequence", sequenceName = "SQ_BAT_PK")
 	@Column(name = "BAT_ID")
 	private int id;
+
 	@Column(name = "NAME")
 	private String name;
+
 	@Column(name = "WINGSPAN")
-	private double wingspan;
+	private double wingspan = 20.0;
 
 	public int getId() {
 		return id;
