@@ -11,7 +11,37 @@ public class Driver {
 
 	public static void main(String[] args) {
 		SessionFactory sf = ConnectionUtil.getSessionFactory();
-		makeBats(sf);
+		// makeBats(sf);
+		getAndLoad(sf);
+	}
+
+	static void getAndLoad(SessionFactory sf) {
+		Session s = sf.openSession();
+
+		// get a bat we know that we have.
+		Bat b = s.get(Bat.class, 3);
+		System.out.println(b);
+
+		// get a bat we don't have (will be null)
+		Bat b2 = s.get(Bat.class, 17);
+		System.out.println(b2);
+
+		// load a bat we know that we have.
+		Bat b3 = s.load(Bat.class, 4);
+		System.out.println(b3);
+
+		// load a bat that we don't have. (throws ObjectNotFoundException)
+		// Bat b4 = s.load(Bat.class, 18);
+		// System.out.println(b4);
+
+		// load a bat we know that we have, but don't access it (leave it as a proxy)
+		Bat b5 = s.load(Bat.class, 5);
+
+		s.close();
+
+		// try to print the details of proxy bat (throws LazyInitializationException)
+		// System.out.println(b5);
+
 	}
 
 	static void makeBats(SessionFactory sf) {
