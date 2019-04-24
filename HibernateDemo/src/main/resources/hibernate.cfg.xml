@@ -17,5 +17,6 @@
 		<property name="hibernate.show_sql">true</property>
 		<!-- choose whether to start fresh or update existing ddl -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
+		<mapping class="com.revature.beans.Bat"></mapping>
 	</session-factory>
 </hibernate-configuration>
