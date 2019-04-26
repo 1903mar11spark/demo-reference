@@ -8,12 +8,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+// named queries - allow us to create reusable queries (remember, Query has full DML as well 
+// as DQL, so it's not an exact mapping onto PL/SQL views)
+@NamedQueries({ @NamedQuery(name = "getAllBats", query = "from Bat"), // notice this is HQL - not referencing
+																		// tables/columns, but Java objects
+		@NamedQuery(name = "getBatsByCave", query = "from Bat where cave.id = :caveVar") })
+
 /*
- * this class is mapped to a DB table using JPA (Java Persistence API) annotations
- * Hibernate has its own, but convention is to use JPA
+ * this class is mapped to a DB table using JPA (Java Persistence API)
+ * annotations Hibernate has its own, but convention is to use JPA
  */
 @Entity // indicates that the class represents a DB entity.
 @Table(name = "BAT") // use this if you want to change the name of the generated/mapped table
@@ -33,7 +41,7 @@ public class Bat {
 		this.name = name;
 		this.wingspan = wingspan;
 	}
-	
+
 	public Bat(int id, String name) {
 		super();
 		this.name = name;
@@ -58,9 +66,12 @@ public class Bat {
 
 	@Column(name = "WINGSPAN")
 	private double wingspan = 20.0;
-	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="CAVE_ID")
+
+	// can set up "cascade" - allows transitive persistence
+	// can cause DML ops to "cascade" onto related entities (e.g. can create a new
+	// Cave if a Bat is created with an unknown Cave)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "CAVE_ID")
 	private Cave cave;
 
 	public int getId() {
@@ -94,7 +105,7 @@ public class Bat {
 	public void setCave(Cave cave) {
 		this.cave = cave;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Bat [id=" + id + ", name=" + name + ", wingspan=" + wingspan + ", cave=" + cave + "]";
