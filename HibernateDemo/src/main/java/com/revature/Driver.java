@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.revature.beans.Bat;
+import com.revature.dao.CaveDAO;
+import com.revature.dao.CaveDAOImpl;
 import com.revature.util.ConnectionUtil;
 
 public class Driver {
@@ -12,7 +14,17 @@ public class Driver {
 	public static void main(String[] args) {
 		SessionFactory sf = ConnectionUtil.getSessionFactory();
 		// makeBats(sf);
-		getAndLoad(sf);
+		//getAndLoad(sf);
+		CaveDAO cd = new CaveDAOImpl();
+		System.out.println(cd.getAllCaves());
+	}
+	
+	static void otherSessionMethods(SessionFactory sf) {
+		Session s = sf.openSession();
+		Transaction tx1 = s.beginTransaction();
+		
+		tx1.commit();
+		s.close();
 	}
 
 	static void getAndLoad(SessionFactory sf) {

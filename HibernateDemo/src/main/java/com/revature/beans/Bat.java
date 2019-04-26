@@ -2,9 +2,12 @@ package com.revature.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -55,6 +58,10 @@ public class Bat {
 
 	@Column(name = "WINGSPAN")
 	private double wingspan = 20.0;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="CAVE_ID")
+	private Cave cave;
 
 	public int getId() {
 		return id;
@@ -80,9 +87,17 @@ public class Bat {
 		this.wingspan = wingspan;
 	}
 
+	public Cave getCave() {
+		return cave;
+	}
+
+	public void setCave(Cave cave) {
+		this.cave = cave;
+	}
+	
 	@Override
 	public String toString() {
-		return "Bat [id=" + id + ", name=" + name + ", wingspan=" + wingspan + "]";
+		return "Bat [id=" + id + ", name=" + name + ", wingspan=" + wingspan + ", cave=" + cave + "]";
 	}
 
 }
