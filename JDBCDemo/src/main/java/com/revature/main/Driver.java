@@ -16,11 +16,9 @@ public class Driver {
 		 * catch (IOException e) { e.printStackTrace(); }
 		 */
 		BearDAO bd = new BearDAOImpl();
-		List<Bear> bearList = bd.getBears();
-		
-		for(Bear b : bearList) {
-			System.out.println(b);
-		}
+		//List<Bear> bearList = bd.getBears();
+		//Bear berneice = bd.getBearById(2);
+		System.out.println(bd.feedBear(1003, 1001, 5000));
 	}
 
 }

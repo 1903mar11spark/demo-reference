@@ -12,8 +12,10 @@ public class ConnectionUtil {
 	
 	// do not ever!!!! hardcode credentials like this
 	public static Connection getConnection() throws SQLException {
-		
-		return DriverManager.getConnection("", "", "");
+		String url = "jdbc:oracle:thin:@spark-1903mar11.chid1me7fqpz.us-east-1.rds.amazonaws.com:1521:orcl";
+		String username = "Admin";
+		String pass = "p4ssw0rd";
+		return DriverManager.getConnection(url, username, pass);
 	}
 	
 	public static Connection getConnectionFromFile(String filename) throws SQLException, IOException {

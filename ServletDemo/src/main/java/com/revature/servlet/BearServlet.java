@@ -40,6 +40,9 @@ public class BearServlet extends HttpServlet {
 	// return all bears IF no bear id is specified
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// allows responses from the same host
+		resp.addHeader("Access-Control-Allow-Origin", "*");
+		resp.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
 		String idString = req.getParameter("id");
 		if (idString != null) {
 			try {
@@ -57,7 +60,7 @@ public class BearServlet extends HttpServlet {
 			resp.getWriter().write(om.writeValueAsString(bearService.allBears()));
 		}
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		if (bearService.createBear(om.readValue(req.getReader(), Bear.class))) {
