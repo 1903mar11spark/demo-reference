@@ -1,0 +1,6 @@
+2019-05-02 11:25:03 INFO  root:13 - Bear [speed=30, isHungry=false] is chasing Human [speed=20, isHungry=false]
+2019-05-02 11:25:03 WARN  root:20 - Bear [speed=30, isHungry=false] caught Human [speed=20, isHungry=false]
+2019-05-02 11:26:03 INFO  root:13 - Bear [speed=30, isHungry=true] is chasing Human [speed=20, isHungry=false]
+2019-05-02 11:26:03 WARN  root:20 - Bear [speed=30, isHungry=true] caught Human [speed=20, isHungry=false]
+2019-05-02 11:26:03 FATAL root:22 - Bear [speed=30, isHungry=true] ate Human [speed=20, isHungry=false]
+2019-05-02 11:28:52 FATAL root:22 - Bear [speed=30, isHungry=true] ate Human [speed=20, isHungry=false]

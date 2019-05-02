@@ -14,7 +14,7 @@ public class WalkInTheWoods {
 		
 		Bear b = new Bear();
 		b.setSpeed(30);
-		b.setHungry(false);
+		b.setHungry(true);
 		
 		CircleOfLifeService cls = new CircleOfLifeService();
 		try {
