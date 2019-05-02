@@ -9,8 +9,8 @@
 	default-init-method="defaultInit"
 	default-destroy-method="defaultDestroy">
 	<!-- the default init and destroy attributes specify which method in EVERY 
-		BEAN will be called at the appropriate lifecycle phase
-		this can also be set for specific beans instead of globally -->
+		BEAN will be called at the appropriate lifecycle phase this can also be set 
+		for specific beans instead of globally -->
 	<!-- scope="prototype" attribute would cause a new instance of Author to 
 		be created with each call to getBean("author") -->
 	<bean name="author" class="com.revature.beans.Author">
@@ -34,7 +34,6 @@
 	</bean>
 
 	<!-- autowiring -->
-
 	<bean name="flashcardWithAutoByName"
 		class="com.revature.beans.FlashcardWithAutoByName" autowire="byName"
 		scope="prototype"></bean>
@@ -42,6 +41,7 @@
 		class="com.revature.beans.FlashcardWithAutoByType" autowire="byType"
 		scope="prototype"></bean>
 
+	<!-- to use stereotypes to register beans, include component-scan -->
 	<context:component-scan
 		base-package="com.revature"></context:component-scan>
 </beans>

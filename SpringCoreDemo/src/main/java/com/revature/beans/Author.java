@@ -18,7 +18,7 @@ public class Author {
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
-		//System.out.println("in setter");
+		System.out.println("in setter");
 	}
 	public String getLastName() {
 		return lastName;

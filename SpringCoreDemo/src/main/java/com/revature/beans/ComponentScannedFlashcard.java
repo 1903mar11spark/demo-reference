@@ -16,8 +16,14 @@ public class ComponentScannedFlashcard extends Flashcard {
 	}
 	
 	//field injection! Not good practices! Can also use @Autowired on setters
-	@Autowired
+	//@Autowired
 	private Author author;
+	
+	//setter injection with autowiring
+	@Autowired
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
 
 	@Override
 	public void methodInFlashcard() {
