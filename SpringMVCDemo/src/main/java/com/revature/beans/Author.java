@@ -2,8 +2,9 @@ package com.revature.beans;
 
 public class Author {
 	
-	public Author(String firstName, String lastName) {
+	public Author(int id, String firstName, String lastName) {
 		super();
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		System.out.println("in constructor");
@@ -11,6 +12,7 @@ public class Author {
 	public Author() {
 		super();
 	}
+	private int id;
 	private String firstName;
 	private String lastName;
 	public String getFirstName() {
@@ -26,9 +28,15 @@ public class Author {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	@Override
 	public String toString() {
-		return "Author [firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "Author [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
 
 }

@@ -12,4 +12,19 @@
 	<!-- enable MVC annotations -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 
+	<!-- enable mapping of static resources -->
+	<mvc:resources location="/WEB-INF/static/"
+		mapping="/static/**"></mvc:resources>
+
+	<!-- set up ViewResolver for JSPs (and other templating engines, like Thymeleaf 
+		and Freemarker) -->
+	<bean name="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
 </beans>

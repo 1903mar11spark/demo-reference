@@ -12,7 +12,7 @@ import com.revature.beans.FlashcardTopics;
 @Service
 public class FlashcardService {
 
-	private Author a = new Author("Simon", "Garfunkel");
+	private Author a = new Author(3, "Simon", "Garfunkel");
 	private List<Flashcard> fl = new ArrayList<>();
 
 	{
