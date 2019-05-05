@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.beans.Author;
 
-@Repository
+@Repository(value="authorDAO")
 @Transactional
 public class AuthorDAOImpl implements AuthorDAO {
 	
@@ -27,12 +27,29 @@ public class AuthorDAOImpl implements AuthorDAO {
 	@Override
 	public List<Author> allAuthors() {
 		List<Author> authors = new ArrayList<>();
-		try (Session s = sessionFactory.getCurrentSession()) {
-			Transaction tx = s.beginTransaction();
+			Session s = sessionFactory.getCurrentSession();
 			authors = s.createQuery("from Author").getResultList();
-			tx.commit();
-		}
 		return authors;
+	}
+
+	@Override
+	public Author getAuthorById(int id) {
+		return sessionFactory.getCurrentSession().get(Author.class, id);
+	}
+
+	@Override
+	public void createAuthor(Author author) {
+		sessionFactory.getCurrentSession().persist(author);
+	}
+
+	@Override
+	public void updateAuthor(Author author) {
+		sessionFactory.getCurrentSession().saveOrUpdate(author);
+	}
+
+	@Override
+	public void deleteAuthor(Author author) {
+		sessionFactory.getCurrentSession().delete(author);
 	}
 
 }

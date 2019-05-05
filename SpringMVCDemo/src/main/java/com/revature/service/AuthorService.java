@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.revature.beans.Author;
 import com.revature.dao.AuthorDAO;
-import com.revature.dao.AuthorDAOImpl;
 
 @Service
 public class AuthorService {
@@ -15,12 +14,27 @@ public class AuthorService {
 	private AuthorDAO authorDAO;
 	
 	@Autowired
-	public AuthorService(AuthorDAOImpl ad) {
-		this.authorDAO = ad;
+	public AuthorService(AuthorDAO authorDAO) {
+		this.authorDAO = authorDAO;
 	}
 	
 	public List<Author> allAuthors() {
 		return authorDAO.allAuthors();
 	}
 	
+	public Author getAuthorById(int id) {
+		return authorDAO.getAuthorById(id);
+	}
+	
+	public void createAuthor(Author author) {
+		authorDAO.createAuthor(author);
+	}
+	
+	public void updateAuthor(Author author) {
+		authorDAO.updateAuthor(author);
+	}
+	
+	public void deleteAuthor(Author author) {
+		authorDAO.deleteAuthor(author);
+	}
 }
