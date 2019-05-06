@@ -1,6 +1,27 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="FLASHCARD")
 public class Flashcard {
+	
+	public Flashcard(String question, String answer, FlashcardTopics topic, Author author) {
+		super();
+		this.question = question;
+		this.answer = answer;
+		this.topic = topic;
+		this.author = author;
+	}
+
 
 	public Flashcard(int id, String question, String answer, FlashcardTopics topic, Author author) {
 		super();
@@ -15,10 +36,19 @@ public class Flashcard {
 		super();
 	}
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="flashcardSequence")
+	@SequenceGenerator(allocationSize=1, name="flashcardSequence", sequenceName="SQ_FLASHCARD_PK")
+	@Column(name="FLASHCARD_ID")
 	private int id;
+	@Column(name="QUESTION")
 	private String question;
+	@Column(name="ANSWER")
 	private String answer;
+	@Column(name="TOPIC")
 	private FlashcardTopics topic;
+	@ManyToOne
+	@JoinColumn(name="AUTHOR_ID")
 	private Author author;
 
 	public String getQuestion() {
