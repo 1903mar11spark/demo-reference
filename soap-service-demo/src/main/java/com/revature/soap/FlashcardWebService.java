@@ -10,7 +10,7 @@ import javax.xml.ws.ResponseWrapper;
 
 import com.revature.beans.Flashcard;
 
-@WebService(targetNamespace = "http://service.flashcard.ex/", name = "Flashcard")
+@WebService(targetNamespace = "http://soap.revature.com/", name = "Flashcard")
 public interface FlashcardWebService {
 
 	/*
@@ -19,9 +19,9 @@ public interface FlashcardWebService {
 	 */
 
 	@WebResult(name = "return", targetNamespace = "")
-	@RequestWrapper(localName = "allFlashcards", targetNamespace = "http://service.flashcard.ex/", className = "ex.flashcard.service.allFlashcards")
+	@RequestWrapper(localName = "allFlashcards", targetNamespace = "http://soap.revature.com/", className = "soap.revature.com.allFlashcards")
 	@WebMethod(action = "urn:AllFlashcards")
-	@ResponseWrapper(localName = "allFlashcardsResponse", targetNamespace = "http://ex.flashcard.service/", className = "service.flashcard.ex.AllFlashcardsResponse")
+	@ResponseWrapper(localName = "allFlashcardsResponse", targetNamespace = "http://soap.revature.com/", className = "soap.revature.com.AllFlashcardsResponse")
 	public List<Flashcard> allFlashcards();
 
 }

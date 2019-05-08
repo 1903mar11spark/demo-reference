@@ -1,19 +1,20 @@
 package com.revature.soap;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.jws.WebMethod;
-import javax.jws.WebService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.revature.beans.Author;
 import com.revature.beans.Flashcard;
 import com.revature.beans.FlashcardTopics;
 import com.revature.dao.FlashcardRepository;
 
-@Service
-@javax.jws.WebService(serviceName = "FlashcardService", portName = "FlashcardPort", targetNamespace = "http://service.flashcard.ex/", endpointInterface = "com.revature.soap.FlashcardWebService")
+@Service //Spring stereotype
+@javax.jws.WebService(serviceName = "Flashcard", portName = "FlashcardPort", targetNamespace = "http://soap.revature.com/", endpointInterface = "com.revature.soap.FlashcardWebService")
 public class FlashcardWebServiceImpl implements FlashcardWebService {
 
 	@Autowired
@@ -24,7 +25,10 @@ public class FlashcardWebServiceImpl implements FlashcardWebService {
 
 	@WebMethod
 	public List<Flashcard> allFlashcards() {
-		return flashcardRepository.findAll();
+		List<Flashcard> fl = new ArrayList<>();
+		fl.add(new Flashcard(3, "question?", "answer", FlashcardTopics.MATH, new Author(4, "Frida", "Kahlo")));
+		//return flashcardRepository.findAll();
+		return fl;
 	}
 
 }
