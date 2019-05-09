@@ -30,12 +30,12 @@ public class Client {
 		factory.setAddress(serviceUrl);
 
 		// set up interceptors
-		/*LoggingInInterceptor inInt = new LoggingInInterceptor();
+		LoggingInInterceptor inInt = new LoggingInInterceptor();
 		LoggingOutInterceptor outInt = new LoggingOutInterceptor();
 		factory.getInInterceptors().add(inInt);
 		factory.getOutInterceptors().add(outInt);
 		inInt.setPrintWriter(new PrintWriter(System.out));
-		outInt.setPrintWriter(new PrintWriter(System.out));*/
+		outInt.setPrintWriter(new PrintWriter(System.out));
 
 		return (FlashcardWebService) factory.create();
 	}
