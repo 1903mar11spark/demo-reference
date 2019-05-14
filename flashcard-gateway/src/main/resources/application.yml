@@ -1,0 +1,22 @@
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      defaultZone: ${SCREENFORCE_EUREKA_SERVER_URL}
+spring:
+  application:
+    name: flashcard-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes: # can have many routes! each with id, uri, predicates, filters
+      - id: flashcard-service
+        uri: lb://flashcard-service
+        predicates: 
+        - Path=/flashcard/**
+        filters:
+        - RewritePath=/screening/(?<path>.*), /$\{path}
+        

@@ -2,6 +2,8 @@ package com.revature.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,6 +48,7 @@ public class Flashcard {
 	@Column(name="ANSWER")
 	private String answer;
 	@Column(name="TOPIC")
+	@Enumerated(EnumType.STRING)
 	private FlashcardTopics topic;
 	@ManyToOne
 	@JoinColumn(name="AUTHOR_ID")
